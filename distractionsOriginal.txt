@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recreational Distractions | Katie Ekström Grenon</title>
+
+  <!-- Favicon (same as index) -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+  <!-- Optional external stylesheet if you use it later -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Match index styles */
+    :root {
+      --text: #f5f5f5;
+      --muted: #cccccc;
+      --para: #e0e0e0;
+      --rule: rgba(255,255,255,0.1);
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, #2a2a2a 0%, rgba(42,42,42,0) 60%),
+        linear-gradient(135deg, #1b1b1b 0%, #252525 40%, #303030 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 1rem;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
+    header p.sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    /* Lightweight top nav (matches the look, very subtle) */
+    .topnav {
+      margin-top: 1rem;
+    }
+    .topnav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin: 0 .5rem;
+    }
+    .topnav a:hover,
+    .topnav a:focus {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 900px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+      flex-grow: 1;
+    }
+    section {
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 2rem;
+    }
+    section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: .75rem;
+      font-weight: 700;
+    }
+    p, li {
+      color: var(--para);
+      font-size: 1.05rem;
+    }
+
+    /* Media elements (match index video treatment) */
+    .frame {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      background: #000;
+      overflow: hidden;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 720px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    }
+    img.media {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      background: #000;
+    }
+
+    /* Responsive 16:9 embed */
+    .embed-16x9 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+    }
+    .embed-16x9 iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      background: #000;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      color: #888;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* Small captions */
+    .caption {
+      margin-top: .5rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Recreational Distractions</h1>
+    <p class="sub">scientists are people too</p>
+
+    <nav class="topnav" aria-label="Site">
+      <a href="index.html">Home</a>
+      <!-- Add more when those pages exist:
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="collaborators.html">Collaborators</a>
+      -->
+    </nav>
+  </header>
+
+  <main>
+    <section id="bookshelf">
+      <h2>Bookshelf</h2>
+      <p>A rotating shelf of things I’m reading or revisiting. Short notes coming soon.</p>
+      <div class="grid-2">
+        <div>
+          <img class="media" src="assets/book1.jpg" alt="Book cover placeholder" loading="lazy" />
+          <div class="caption">One-line takeaway.</div>
+        </div>
+        <div>
+          <img class="media" src="assets/book2.jpg" alt="Book cover placeholder" loading="lazy" />
+          <div class="caption">Another takeaway.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="music-video">
+      <h2>A Music Video I Love</h2>
+      <div class="embed-16x9">
+        <!-- Replace VIDEO_ID -->
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          title="Music video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      <p class="caption">Why this piece resonates with me…</p>
+    </section>
+
+    <section id="weather">
+      <h2>In My Neck of the Woods</h2>
+      <!-- You can swap this for a different widget/service later -->
+      <div class="frame" style="background:#111;">
+        <iframe
+          src="https://forecast7.com/en/44d48n73d20/burlington/"
+          loading="lazy"
+          style="width:100%; height:260px; border:0; display:block; border-radius:12px;"></iframe>
+      </div>
+    </section>
+
+    <section id="artwork">
+      <h2>Artwork by a Friend</h2>
+      <div class="grid-2">
+        <img class="media" src="assets/art1.jpg" alt="Artwork 1 by [Friend’s Name]" loading="lazy" />
+        <img class="media" src="assets/art2.jpg" alt="Artwork 2 by [Friend’s Name]" loading="lazy" />
+      </div>
+      <p class="caption">With gratitude to [Friend’s Name]. Links and credits forthcoming.</p>
+    </section>
+
+    <section id="landscapes">
+      <h2>Landscapes & Destinations</h2>
+      <div class="grid-2">
+        <img class="media" src="assets/landscape1.jpg" alt="Landscape 1" loading="lazy" />
+        <img class="media" src="assets/landscape2.jpg" alt="Landscape 2" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="junco">
+      <h2>Interview with a Junco</h2>
+      <p>Notes from conversations with my favorite bird, the dark-eyed junco.</p>
+      <div class="frame" style="padding:1.25rem; background:#111; border-radius:12px;">
+        <p><strong>Q:</strong> Favorite winter pastime?</p>
+        <p><strong>A:</strong> Scratching snow for hidden seeds.</p>
+      </div>
+      <img class="media" src="assets/junco.jpg" alt="Dark-eyed Junco" loading="lazy" style="margin-top:1rem; max-width:420px;" />
+    </section>
+
+    <section id="movement">
+      <h2>Movement & Play</h2>
+      <div class="grid-2">
+        <div>
+          <img class="media" src="assets/finishline.jpg" alt="Trail run finish line" loading="lazy" />
+          <p class="caption">The joy of movement and time outside.</p>
+        </div>
+        <div>
+          <img class="media" src="assets/heatmap.jpg" alt="Stylized activity heat map (privacy-safe)" loading="lazy" />
+          <p class="caption">An artified, privacy-safe view of activity rather than a literal map.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Katie Ekström Grenon
+  </footer>
+</body>
+</html>
+

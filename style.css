@@ -1,0 +1,327 @@
+/* Color variables */
+:root {
+  --text: #f5f5f5;
+  --muted: #cccccc;
+  --para: #e0e0e0;
+  --rule: rgba(255, 255, 255, 0.1);
+  --accent: #ffcc33; /* Change this once and it updates everywhere */
+}
+
+/* Base body styling */
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: radial-gradient(1200px 600px at 10% 10%, #2a2a2a 0%, rgba(42,42,42,0) 60%),
+              linear-gradient(135deg, #1b1b1b 0%, #252525 40%, #303030 100%);
+  color: #f5f5f5;
+  margin: 0;
+  padding-top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global link reset */
+a {
+  color: inherit;            /* matches surrounding text */
+  text-decoration: none;     /* no underline by default */
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--accent);
+}
+
+/* Site navigation (sticky) */
+.site-nav {
+  background: rgba(0, 0, 0, 0.2); /* subtle translucent background */
+  padding: 0.75rem 1rem;
+  position: sticky;   /* stays at top when scrolling */
+  top: 0;
+  z-index: 1000;
+}
+
+.site-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  font-family: inherit;
+  font-size: 1rem;
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #ffffff;
+}
+
+.site-nav .active {
+  border-bottom: 2px solid rgba(255,255,255,0.6);
+}
+
+/* Header */
+header {
+ text-align: center;
+ padding: 2rem 1rem 1.5rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+header h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #b0b0b0;
+}
+
+header p.sub {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+  flex-grow: 1;
+}
+
+section {
+  margin-bottom: 3rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 2rem;
+}
+section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: .75rem;
+  font-weight: 700;
+}
+p, li {
+  color: var(--para);
+  font-size: 1.05rem;
+}
+
+/* Media / embeds */
+.frame {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+  overflow: hidden;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 720px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+img.media {
+video {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+.embed-16x9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.embed-16x9 iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+
+/* Captions */
+.caption {
+  margin-top: .5rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Small muted captions */
+.caption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* -------------------------------
+   Shared Media / Layout Utilities
+----------------------------------*/
+
+/* Framed blocks (widgets, quotes, etc.) */
+.frame {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+  overflow: hidden;
+}
+
+/* Two-column responsive grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 720px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Generic media images */
+.media {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+
+/* Responsive 16:9 embeds (YouTube, Vimeo, etc.) */
+.embed-16x9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+.embed-16x9 iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+
+
+/* Contact page formatting */
+.justify {
+  text-align: justify;
+}
+
+.address-block {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.address-line {
+  display: block;
+  margin-left: 5.2ch; /* aligns text under "Office:" */
+}
+
+.map-container {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 720px;  /* keeps it from getting too wide on desktop */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Shrink map height on smaller screens */
+@media (max-width: 600px) {
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
+/* Hover styles using --accent for consistency */
+
+/* Navbar link hover */
+.site-nav a:hover,
+.site-nav a:focus {
+  color: var(--accent);
+}
+
+/* Caption emphasis on hover (for media or text that’s clickable) */
+.caption:hover,
+.caption:focus {
+  color: var(--accent);
+}
+
+/* Example button styling */
+button,
+button:hover,
+button:focus {
+  background-color: var(--accent);
+  color: #fff; /* ensure readability */
+  border: none;
+  cursor: pointer;
+}
+
+/* Button hover state (slightly darker shade via opacity) */
+button:hover,
+button:focus {
+  opacity: 0.9;
+}
+
+
+/* Email link styling, accent on hover */
+.email-link {
+  text-decoration: none;       /* no underline by default */
+  font-weight: inherit;        /* same as surrounding text */
+}
+.email-link:hover,
+.email-link:focus {
+  text-decoration: underline;  /* subtle underline cue */
+  transition: color 0.2s ease;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+  color: #888;
+  border-top: 1px solid var(--rule);
+}
