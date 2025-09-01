@@ -123,6 +123,50 @@ p, li {
 }
 
 /* Media / embeds */
+/* Images and videos with consistent rounded look */
+img.media,
+video.media {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+
+/* Also style plain <video> (your index video doesn’t have class="media") */
+video {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+
+/* Responsive 16:9 wrapper for YouTube/Vimeo embeds */
+.embed-16x9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.embed-16x9 iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: #000;
+}
+
 .frame {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
@@ -141,46 +185,14 @@ p, li {
   }
 }
 
-img.media {
-video {
-  display: block;
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  margin: 2rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  background: #000;
-}
-.embed-16x9 {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-}
-.embed-16x9 iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  background: #000;
-}
-
 /* Captions */
 .caption {
   margin-top: .5rem;
   color: var(--muted);
   font-size: .95rem;
+  text-align: center;
 }
 
-/* Small muted captions */
-.caption {
-  margin-top: 0.5rem;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
 
 /* -------------------------------
    Shared Media / Layout Utilities
@@ -207,7 +219,7 @@ video {
   }
 }
 
-/* Generic media images */
+/* Universal rounded media (images, video, iframes, etc.) */
 .media {
   display: block;
   width: 100%;
@@ -217,21 +229,47 @@ video {
   background: #000;
 }
 
-/* Responsive 16:9 embeds (YouTube, Vimeo, etc.) */
+/* Responsive 16:9 embed container */
 .embed-16x9 {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
 }
+
+/* Apply media styling to iframe inside embeds */
 .embed-16x9 iframe {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Reuse .media look */
+.embed-16x9 iframe {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   background: #000;
+}
+
+/* --- GRID LAYOUT for Research page --- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* --- Research Cards --- */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  text-align: center;
 }
 
 
@@ -317,11 +355,55 @@ button:focus {
   transition: color 0.2s ease;
 }
 
+/* Make visited links inherit (avoid default purple) */
+a:visited { color: inherit; }
+
+/* External resource links */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ext-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  color: var(--para);
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+/* Subtle “external” chevron */
+.ext-link::after {
+  content: "↗";
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.ext-link:hover,
+.ext-link:focus {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.ext-link:hover::after,
+.ext-link:focus::after {
+  transform: translate(2px, -2px);
+}
+
+
 /* Footer */
-footer {
+footer, footer * {
   text-align: center;
   font-size: 0.9rem;
   padding: 2rem 1rem;
-  color: #888;
-  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
