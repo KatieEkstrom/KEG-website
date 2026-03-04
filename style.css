@@ -272,6 +272,22 @@ video {
   text-align: center;
 }
 
+.card-main-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-main-link:hover {
+  background-color: rgba(0,0,0,0.03); /* subtle hover */
+  border-radius: 8px;
+}
+
+.doi {
+  margin-top: 0.75rem;
+  font-size: 0.9em;
+}
+
 
 /* Contact page formatting */
 .justify {
