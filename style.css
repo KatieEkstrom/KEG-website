@@ -272,6 +272,16 @@ video {
   text-align: center;
 }
 
+/* Make research card images visually consistent */
+.research-card .media {
+  width: 100%;
+  height: 260px;          /* adjust slightly if needed */
+  object-fit: contain;    /* preserves proportions */
+  background: #ffffff;    /* ensures clean white padding */
+  padding: 1.25rem;       /* adds interior white space */
+  box-sizing: border-box;
+}
+
 .card-main-link {
   text-decoration: none;
   color: inherit;
