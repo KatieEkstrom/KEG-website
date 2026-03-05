@@ -274,10 +274,7 @@ video {
 
 /* Make research card images visually consistent by adjusting height using white-space */
 
-.media-tall-adjust {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
+.padded-vertical { background: #ffffff; padding-top: .5rem; padding-bottom: .5rem; }
 
 .card-main-link {
   text-decoration: none;
