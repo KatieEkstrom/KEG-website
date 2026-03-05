@@ -273,10 +273,15 @@ video {
 }
 
 /* Make research card images visually consistent by adjusting height using white-space */
-.padded-vertical {
+.image-frame {
   background: #ffffff;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.image-frame img {
+  display: block;
+  width: 100%;
 }
 
 .card-main-link {
