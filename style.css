@@ -275,11 +275,11 @@ video {
 /* Make research card images visually consistent by adjusting height using white-space */
 
 .media-tall-adjust {
-  display: block;
   background-color: #ffffff;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
 
 .card-main-link {
   text-decoration: none;
